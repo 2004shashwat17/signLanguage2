@@ -129,22 +129,22 @@ elif app_mode == 'Sign Language to Text':
     )
     finger_tips = [8, 12, 16, 20]
     thumb_tip = 4
-    # while True:
-    #     ret, img = vid.read()
-    #     img = cv2.flip(img, 1)
-    #     h, w, c = img.shape
-    #     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    #     results = hands.process(img)
     while True:
         ret, img = vid.read()
-    
-        if not ret:  # If frame is not read properly, skip or break
-            break
-    
         img = cv2.flip(img, 1)
-        h, w, c = img.shape  # Access shape only after verifying the frame is valid
+        h, w, c = img.shape
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = hands.process(img)
+    # while True:
+    #     ret, img = vid.read()
+    
+    #     if not ret:  # If frame is not read properly, skip or break
+    #         break
+    
+    #     img = cv2.flip(img, 1)
+    #     h, w, c = img.shape  # Access shape only after verifying the frame is valid
+    #     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    #     results = hands.process(img)
 
         img.flags.writeable = True
         img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
